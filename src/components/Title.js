@@ -10,6 +10,7 @@ const Titulo = styled.h2`
   align-items: center;
   text-align: center;
   margin-top: 106px;
+  margin-bottom: 30px;
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
