@@ -1,8 +1,11 @@
 import Header from "./Header"
 import Title from "./Title"
-import { Container, Filmes, CardFilme } from "../styles/HomePageStyles";
+import { Filmes, CardFilme } from "../styles/HomePageStyles";
+import { Container } from "../styles/ContainerStyles";
+
 import axios from "axios";
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage(){
 
@@ -22,10 +25,13 @@ export default function HomePage(){
       <Title>Selecione o filme</Title>
       <Filmes>
         {/* Fazer o map passando as props aqui */}
-       {items.map((item) => 
-        <CardFilme key={item.id}>
-          <img src={item.posterURL} alt={item.title} />
-        </CardFilme>)}
+       {items.map((filme) => 
+          <Link to={`/sessoes/${filme.id}`} key={filme.id}>
+            <CardFilme>
+              <img src={filme.posterURL} alt={filme.title} />
+            </CardFilme>
+          </Link>
+        )}
       </Filmes>
     </Container>
   )

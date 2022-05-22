@@ -1,15 +1,10 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
 const Filmes = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 30px;
   padding: 0 8px;
   gap: 40px;
   width: 100%;
@@ -33,6 +28,10 @@ const CardFilme = styled.div`
     height: 90%;
     width: 90%;
   }
+
+  img:hover{
+    cursor: pointer;
+  }
 `;
 
-export{Container, Filmes, CardFilme}
+export{Filmes, CardFilme}

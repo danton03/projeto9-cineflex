@@ -14,9 +14,10 @@ const Topo = styled.header`
   width: 100%;
   max-width: 1366px;
   height: 67px;
-  font-weight: 400;
+
+  font-weight: 500;
   font-size: 34px;
   line-height: 40px;
-  background-color: #C3CFD9;
-  color:#E8833A;
+  background-color: #002069;
+  color:#FFFFFF;
 `;
