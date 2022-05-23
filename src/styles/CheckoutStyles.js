@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: ${(props) => props.margin ? props.margin : "0"};
 `
 
-export {Container}
+export {Form}

@@ -1,10 +1,10 @@
 //Importações de funções das dependências instaladas
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 //Importações de componentes e estilos
 import Header from "./Header";
-import Title from "./Title";
+import {Title} from "./Title";
 import { Horario } from "./Horario";
 import { PosterFilme } from "./PosterFilme";
 import { Session } from "./Session";
@@ -18,7 +18,7 @@ export default function SessionTimes() {
 
   useEffect(() => {
     const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${idFilme}/showtimes`)
-    promise.then((response)=>{setFilme(response.data)});
+    promise.then((response)=>{setFilme({...response.data})});
   }, [idFilme]);
 
   //console.log(filme);
@@ -36,10 +36,12 @@ export default function SessionTimes() {
             <h3>{dia.weekday} - {dia.date}</h3>
             {<Horarios>
 
-              {dia.showtimes.map((horario) => 
-              <Horario key={horario.id}>
-                {horario.name}
-              </Horario>
+              {dia.showtimes.map((horario) =>
+              <Link to={`/assentos/${horario.id}`} key={horario.id}>
+                <Horario key={horario.id}>
+                  {horario.name}
+                </Horario>
+              </Link>
               )}
 
             </Horarios>}
@@ -60,14 +62,6 @@ export default function SessionTimes() {
             size={"26px"}>
             {filme.title}
           </Title>
-
-          {/* Esse Segundo title é para a tela 3 */}
-          {/* <Title 
-            color={"#001636"} 
-            marginTop={"0"} 
-            size={"26px"}>
-            Quinta-feira - 15:00
-          </Title> */}
         </Descriptions>
 
       </Footer>
@@ -75,9 +69,3 @@ export default function SessionTimes() {
     </Container>
   );
 }
-
-/* <Link to={`/sessoes/${filme.id}`} key={filme.id}>
-            <CardFilme>
-              <img src={filme.posterURL} alt={filme.title} />
-            </CardFilme>
-          </Link> */

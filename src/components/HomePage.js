@@ -1,5 +1,5 @@
 import Header from "./Header"
-import Title from "./Title"
+import {Title} from "./Title"
 import { Filmes, CardFilme } from "../styles/HomePageStyles";
 import { Container } from "../styles/ContainerStyles";
 
